@@ -3,436 +3,160 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Rate Card — Graphic Design · 3D Animation · Video Editing</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<title>Moses Alfonso — The CommDesk Commission</title>
+<meta name="description" content="Portfolio of Moses Alfonso — videography, photography, 3D animation, and graphic design. The CommDesk Commission.">
 <style>
   :root{
-    --bg:#101014;
-    --panel:#1a1a1f;
-    --panel-2:#1f1f26;
+    --bg:#0c0c10;
     --ink:#f5f3ee;
-    --muted:#8d8d97;
-    --rule:rgba(255,255,255,0.08);
-    --gd:#4fd1c5;
-    --gd-dim:rgba(79,209,197,0.12);
-    --td:#b794f6;
-    --td-dim:rgba(183,148,246,0.12);
-    --ve:#ff6b4a;
-    --ve-dim:rgba(255,107,74,0.12);
-    --as:#f2c94c;
-    --as-dim:rgba(242,201,76,0.12);
+    --muted:#b9b9c2;
+    --teal:#4fd1c5;
+    --gold:#f2c94c;
+    --panel:rgba(12,12,16,0.72);
   }
   *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
   body{
     margin:0;
     background:var(--bg);
     color:var(--ink);
-    font-family:'Inter',sans-serif;
-    padding:48px 24px 64px;
-  }
-  .sheet{
-    max-width:920px;
-    margin:0 auto;
+    font-family:'Inter',system-ui,-apple-system,sans-serif;
   }
 
-  /* ---------- HEADER / SLATE ---------- */
-  .header{
-    border:1px solid var(--rule);
-    border-radius:10px;
-    padding:36px 40px 28px;
-    background:var(--panel);
+  /* ---------- POSTER ---------- */
+  .poster-wrap{
     position:relative;
-    overflow:hidden;
+    width:100%;
+    line-height:0;
   }
-  .eyebrow{
-    font-family:'IBM Plex Mono',monospace;
-    font-size:12px;
-    letter-spacing:0.14em;
-    color:var(--muted);
-    text-transform:uppercase;
-    margin:0 0 10px;
-  }
-  .title{
-    font-family:'Oswald',sans-serif;
-    font-weight:600;
-    font-size:44px;
-    letter-spacing:0.02em;
-    text-transform:uppercase;
-    margin:0;
-    line-height:1.05;
-  }
-  .subtitle{
-    font-size:15px;
-    color:var(--muted);
-    margin:10px 0 28px;
-    max-width:520px;
-  }
-  .ruler{
-    display:flex;
-    justify-content:space-between;
-    border-top:1px solid var(--rule);
-    padding-top:10px;
-    font-family:'IBM Plex Mono',monospace;
-    font-size:11px;
-    color:var(--muted);
-    letter-spacing:0.05em;
-  }
-  .ruler span{position:relative;}
-  .ruler span::before{
-    content:"";
-    position:absolute;
-    top:-16px;
-    left:0;
-    width:1px;
-    height:8px;
-    background:var(--rule);
+  .poster{
+    display:block;
+    width:100%;
+    height:auto;
   }
 
-  /* ---------- TRACKS ---------- */
-  .track{
-    margin-top:28px;
-    border:1px solid var(--rule);
-    border-radius:10px;
-    background:var(--panel);
-    overflow:hidden;
-  }
-  .track-head{
-    display:flex;
+  /* ---------- FLOATING CTA ---------- */
+  .cta{
+    position:fixed;
+    right:24px;
+    bottom:24px;
+    z-index:10;
+    display:inline-flex;
     align-items:center;
-    gap:12px;
-    padding:16px 20px;
-    border-bottom:1px solid var(--rule);
-    border-left:4px solid var(--accent);
-  }
-  .track-code{
-    font-family:'IBM Plex Mono',monospace;
-    font-size:12px;
-    color:var(--accent);
-    background:var(--accent-dim);
-    padding:3px 8px;
-    border-radius:4px;
-    letter-spacing:0.05em;
-  }
-  .track-name{
-    font-family:'Oswald',sans-serif;
-    font-size:19px;
-    font-weight:500;
-    text-transform:uppercase;
-    letter-spacing:0.03em;
-  }
-  .track-dots{
-    margin-left:auto;
-    display:flex;
-    gap:6px;
-  }
-  .track-dots i{
-    width:6px;height:6px;border-radius:50%;
-    background:var(--rule);
-    display:inline-block;
-  }
-
-  .clips{
-    display:grid;
-    grid-template-columns:repeat(auto-fill,minmax(240px,1fr));
-  }
-  .clip{
-    padding:18px 20px;
-    border-right:1px solid var(--rule);
-    border-bottom:1px solid var(--rule);
-  }
-  .clip:hover{background:var(--panel-2);}
-  .clip-name{
-    font-size:14.5px;
-    font-weight:500;
-    margin:0 0 4px;
-  }
-  .clip-desc{
-    font-size:12.5px;
-    color:var(--muted);
-    margin:0 0 14px;
-    line-height:1.4;
-    min-height:32px;
-  }
-  .clip-foot{
-    display:flex;
-    align-items:baseline;
-    justify-content:space-between;
-    border-top:1px solid var(--rule);
-    padding-top:10px;
-  }
-  .price{
-    font-family:'IBM Plex Mono',monospace;
-    font-size:15px;
-    font-weight:500;
-    color:var(--accent);
-  }
-  .turn{
-    font-family:'IBM Plex Mono',monospace;
-    font-size:11px;
-    color:var(--muted);
-  }
-
-  /* ---------- NOTES ---------- */
-  .notes{
-    margin-top:28px;
-    border:1px solid var(--rule);
-    border-radius:10px;
+    gap:10px;
+    padding:14px 22px;
     background:var(--panel);
-    padding:24px 28px;
-  }
-  .notes h3{
-    font-family:'Oswald',sans-serif;
-    font-size:15px;
-    text-transform:uppercase;
-    letter-spacing:0.08em;
-    margin:0 0 14px;
-    color:var(--muted);
-  }
-  .notes ul{
-    margin:0;
-    padding-left:0;
-    list-style:none;
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:8px 24px;
-  }
-  .notes li{
-    font-size:13px;
+    backdrop-filter:blur(10px);
+    -webkit-backdrop-filter:blur(10px);
+    border:1px solid rgba(255,255,255,0.14);
+    border-radius:999px;
     color:var(--ink);
-    padding-left:16px;
-    position:relative;
-    line-height:1.5;
+    text-decoration:none;
+    font-size:14px;
+    font-weight:600;
+    letter-spacing:0.03em;
+    text-transform:uppercase;
+    box-shadow:0 8px 24px rgba(0,0,0,0.35);
+    opacity:0;
+    transform:translateY(12px);
+    animation:rise 0.6s ease-out 0.4s forwards;
+    transition:border-color 0.2s ease, transform 0.2s ease, background 0.2s ease;
   }
-  .notes li::before{
-    content:"—";
+  .cta:hover,
+  .cta:focus-visible{
+    border-color:var(--teal);
+    transform:translateY(-2px);
+    background:rgba(12,12,16,0.9);
+  }
+  .cta:focus-visible{
+    outline:2px solid var(--teal);
+    outline-offset:3px;
+  }
+  .cta .dot{
+    width:7px;
+    height:7px;
+    border-radius:50%;
+    background:var(--gold);
+    flex:none;
+  }
+  .cta .arrow{
+    transition:transform 0.2s ease;
+  }
+  .cta:hover .arrow{
+    transform:translateX(3px);
+  }
+
+  @keyframes rise{
+    to{opacity:1; transform:translateY(0);}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .cta{animation:none; opacity:1; transform:none;}
+    .cta .arrow, .cta{transition:none;}
+    html{scroll-behavior:auto;}
+  }
+
+  @media (max-width:640px){
+    .cta{
+      right:16px;
+      bottom:16px;
+      padding:12px 18px;
+      font-size:12.5px;
+    }
+  }
+
+  /* ---------- SKIP LINK (a11y) ---------- */
+  .skip-link{
     position:absolute;
-    left:0;
-    color:var(--muted);
+    left:-999px;
+    top:0;
+    background:var(--ink);
+    color:var(--bg);
+    padding:10px 16px;
+    z-index:100;
+    border-radius:6px;
+    text-decoration:none;
+    font-size:14px;
   }
-
-  .contact{
-    margin-top:24px;
-    text-align:center;
-    font-family:'IBM Plex Mono',monospace;
-    font-size:12px;
-    color:var(--muted);
-    letter-spacing:0.04em;
-  }
-  .contact strong{color:var(--ink);}
-
-  @media(max-width:640px){
-    .title{font-size:30px;}
-    .ruler{display:none;}
-    .notes ul{grid-template-columns:1fr;}
-    body{padding:28px 14px 48px;}
-    .header{padding:28px 22px 22px;}
+  .skip-link:focus{
+    left:16px;
+    top:16px;
   }
 </style>
 </head>
 <body>
-<div class="sheet">
 
-  <div class="header">
-    <p class="eyebrow">Rate card — commissions open</p>
-    <h1 class="title">The CommDesk Commission</h1>
-    <p class="subtitle">Graphic design & layouting, 3D animation, video editing, and academic services. Rates below are starting prices in PHP — final quote depends on scope and complexity.</p>
-    <div class="ruler">
-      <span>00:00</span><span>05:00</span><span>10:00</span><span>15:00</span><span>20:00</span><span>25:00</span><span>30:00</span>
-    </div>
-  </div>
+  <a class="skip-link" href="#rate-card-link">Skip to rate card link</a>
 
-  <!-- TRACK 1 — GRAPHIC DESIGN -->
-  <div class="track" style="--accent:var(--gd); --accent-dim:var(--gd-dim);">
-    <div class="track-head">
-      <span class="track-code">GD</span>
-      <span class="track-name">Graphic Design &amp; Layouting</span>
-      <span class="track-dots"><i></i><i></i><i></i></span>
-    </div>
-    <div class="clips">
-      <div class="clip">
-        <p class="clip-name">Social media post</p>
-        <p class="clip-desc">Single graphic, sized for one platform.</p>
-        <div class="clip-foot"><span class="price">₱150</span><span class="turn">24H TURNAROUND</span></div>
-      </div>
-      <div class="clip">
-        <p class="clip-name">Social media kit</p>
-        <p class="clip-desc">Set of 5 cohesive posts, one theme.</p>
-        <div class="clip-foot"><span class="price">₱600</span><span class="turn">3 DAYS</span></div>
-      </div>
-      <div class="clip">
-        <p class="clip-name">Poster / flyer</p>
-        <p class="clip-desc">Print-ready, A4, one revision round.</p>
-        <div class="clip-foot"><span class="price">₱350</span><span class="turn">2 DAYS</span></div>
-      </div>
-      <div class="clip">
-        <p class="clip-name">Logo design</p>
-        <p class="clip-desc">3 initial concepts + 2 revisions.</p>
-        <div class="clip-foot"><span class="price">₱1,200</span><span class="turn">5 DAYS</span></div>
-      </div>
-      <div class="clip">
-        <p class="clip-name">Brochure / layout</p>
-        <p class="clip-desc">Multi-page document, priced per page.</p>
-        <div class="clip-foot"><span class="price">₱250 / pg</span><span class="turn">3 DAYS</span></div>
-      </div>
-      <div class="clip">
-        <p class="clip-name">Business card</p>
-        <p class="clip-desc">Front and back, print-ready file.</p>
-        <div class="clip-foot"><span class="price">₱200</span><span class="turn">1 DAY</span></div>
-      </div>
-      <div class="clip">
-        <p class="clip-name">Custom illustration</p>
-        <p class="clip-desc">Original digital artwork, flat or detailed.</p>
-        <div class="clip-foot"><span class="price">₱800+</span><span class="turn">4 DAYS</span></div>
-      </div>
-    </div>
-  </div>
+  <main class="poster-wrap">
+    <img
+      class="poster"
+      src="portfolio-poster.png"
+      alt="Moses Alfonso portfolio poster. The CommDesk Commission logo mark at top. Categories: videography, photography, 3D animation, graphic designer. Right side, portrait of Moses holding a camera. Bottom panel lists Experience: ITSC Media Director 2025-2026, ITSC MMT Video Editor 2024-2025, Freelancing 2022. Achievements: To Die A Second Time, 2nd place Sine CLSU Colors of Love 2026, video editor; Pamanang Tumana, 1st place Advocacy Video ASEAN Future Sustainable Leaders Competition 2025, videographer; IRCITE 2025 VE 3rd place, video editor; IRCITE 2024 VE Champion, video editor. Software: Photoshop, Capcut, Blender, Premiere Pro, DaVinci Resolve."
+    >
+  </main>
 
-  <!-- TRACK 2 — 3D ANIMATION -->
-  <div class="track" style="--accent:var(--td); --accent-dim:var(--td-dim);">
-    <div class="track-head">
-      <span class="track-code">3D</span>
-      <span class="track-name">3D Animation</span>
-      <span class="track-dots"><i></i><i></i><i></i></span>
-    </div>
-    <div class="clips">
-      <div class="clip">
-        <p class="clip-name">3D model / render</p>
-        <p class="clip-desc">Single asset, still render, textured.</p>
-        <div class="clip-foot"><span class="price">₱1,000</span><span class="turn">4 DAYS</span></div>
-      </div>
-      <div class="clip">
-        <p class="clip-name">Logo reveal animation</p>
-        <p class="clip-desc">5–10 sec, motion + sound cue.</p>
-        <div class="clip-foot"><span class="price">₱1,500</span><span class="turn">5 DAYS</span></div>
-      </div>
-      <div class="clip">
-        <p class="clip-name">Motion graphics loop</p>
-        <p class="clip-desc">10–15 sec seamless loop, for intros/ads.</p>
-        <div class="clip-foot"><span class="price">₱2,000</span><span class="turn">5 DAYS</span></div>
-      </div>
-      <div class="clip">
-        <p class="clip-name">Short 3D animation</p>
-        <p class="clip-desc">Up to 30 sec, single scene, lit and rendered.</p>
-        <div class="clip-foot"><span class="price">₱3,500</span><span class="turn">7 DAYS</span></div>
-      </div>
-      <div class="clip">
-        <p class="clip-name">Character / scene animation</p>
-        <p class="clip-desc">Rigged character or environment, per 10 sec.</p>
-        <div class="clip-foot"><span class="price">₱2,500 / 10s</span><span class="turn">NEGOTIABLE</span></div>
-      </div>
-      <div class="clip">
-        <p class="clip-name">Full animated sequence</p>
-        <p class="clip-desc">30–60 sec, storyboard through final render.</p>
-        <div class="clip-foot"><span class="price">₱6,000+</span><span class="turn">10–14 DAYS</span></div>
-      </div>
-    </div>
-  </div>
+  <a id="rate-card-link" class="cta" href="rate_card.html">
+    <span class="dot" aria-hidden="true"></span>
+    View rate card
+    <span class="arrow" aria-hidden="true">→</span>
+  </a>
 
-  <!-- TRACK 3 — VIDEO EDITING -->
-  <div class="track" style="--accent:var(--ve); --accent-dim:var(--ve-dim);">
-    <div class="track-head">
-      <span class="track-code">VE</span>
-      <span class="track-name">Video Editing</span>
-      <span class="track-dots"><i></i><i></i><i></i></span>
-    </div>
-    <div class="clips">
-      <div class="clip">
-        <p class="clip-name">Hourly editing rate</p>
-        <p class="clip-desc">General editing, billed per hour.</p>
-        <div class="clip-foot"><span class="price">₱300–500/hr</span><span class="turn">—</span></div>
-      </div>
-      <div class="clip">
-        <p class="clip-name">Simple cut</p>
-        <p class="clip-desc">No effects, under 5 min raw footage.</p>
-        <div class="clip-foot"><span class="price">₱1,000</span><span class="turn">FLAT</span></div>
-      </div>
-      <div class="clip">
-        <p class="clip-name">Color grading only</p>
-        <p class="clip-desc">Applied to an already-edited project.</p>
-        <div class="clip-foot"><span class="price">₱1,000–2,500</span><span class="turn">PER PROJECT</span></div>
-      </div>
-      <div class="clip">
-        <p class="clip-name">Same-day edit</p>
-        <p class="clip-desc">Footage in and delivered within the day.</p>
-        <div class="clip-foot"><span class="price">₱3,500–4,000</span><span class="turn">SAME DAY</span></div>
-      </div>
-      <div class="clip">
-        <p class="clip-name">Basic promo</p>
-        <p class="clip-desc">15–30 sec, edit only, client-supplied footage.</p>
-        <div class="clip-foot"><span class="price">₱1,000–1,500</span><span class="turn">—</span></div>
-      </div>
-      <div class="clip">
-        <p class="clip-name">Standard promo</p>
-        <p class="clip-desc">30–60 sec, edit + basic motion graphics/text.</p>
-        <div class="clip-foot"><span class="price">₱2,000–3,000</span><span class="turn">—</span></div>
-      </div>
-      <div class="clip">
-        <p class="clip-name">Full production</p>
-        <p class="clip-desc">60–90 sec, concept + edit + graphics.</p>
-        <div class="clip-foot"><span class="price">₱4,000–6,000</span><span class="turn">—</span></div>
-      </div>
-      <div class="clip">
-        <p class="clip-name">Podcast edit</p>
-        <p class="clip-desc">Multicam, audio sync, subtitles, intro/hook, basic color grading.</p>
-        <div class="clip-foot"><span class="price">₱2,000–3,500/hr</span><span class="turn">—</span></div>
-      </div>
-      <div class="clip">
-        <p class="clip-name">Extra revision round</p>
-        <p class="clip-desc">Beyond the 2 free rounds included.</p>
-        <div class="clip-foot"><span class="price">₱300–500</span><span class="turn">PER ROUND</span></div>
-      </div>
-    </div>
-  </div>
+  <script>
+    // Reveal the CTA only once the poster image has actually finished loading,
+    // so it never appears floating over a blank page on a slow connection.
+    var poster = document.querySelector('.poster');
+    var cta = document.querySelector('.cta');
+    function showCta(){
+      cta.style.animationPlayState = 'running';
+    }
+    if (poster.complete) {
+      showCta();
+    } else {
+      poster.addEventListener('load', showCta);
+      poster.addEventListener('error', showCta);
+    }
+  </script>
 
-  <!-- TRACK 4 — ACADEMIC SERVICES -->
-  <div class="track" style="--accent:var(--as); --accent-dim:var(--as-dim);">
-    <div class="track-head">
-      <span class="track-code">AS</span>
-      <span class="track-name">Academic Services</span>
-      <span class="track-dots"><i></i><i></i><i></i></span>
-    </div>
-    <div class="clips">
-      <div class="clip">
-        <p class="clip-name">Essay</p>
-        <p class="clip-desc">Standard academic essay.</p>
-        <div class="clip-foot"><span class="price">₱500</span><span class="turn">—</span></div>
-      </div>
-      <div class="clip">
-        <p class="clip-name">Case study</p>
-        <p class="clip-desc">Billed per chapter.</p>
-        <div class="clip-foot"><span class="price">₱500 / ch</span><span class="turn">—</span></div>
-      </div>
-      <div class="clip">
-        <p class="clip-name">Research paper — promo bundle</p>
-        <p class="clip-desc">Standard package covering Chapters 1–5.</p>
-        <div class="clip-foot"><span class="price">₱5,500</span><span class="turn">CH. 1–5</span></div>
-      </div>
-      <div class="clip">
-        <p class="clip-name">Research paper — per chapter</p>
-        <p class="clip-desc">Individual chapter, standard scope.</p>
-        <div class="clip-foot"><span class="price">₱1,200 / ch</span><span class="turn">—</span></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- NOTES -->
-  <div class="notes">
-    <h3>Production notes</h3>
-    <ul>
-      <li>50% downpayment upon booking, balance due upon delivery</li>
-      <li>2 free revision rounds included per project; additional rounds billed separately</li>
-      <li>Rush jobs (delivery in under 24 hrs from handoff): +20–30% of base price</li>
-      <li>Turnaround times are estimates, may shift with queue</li>
-      <li>Files delivered in agreed format (MP4, PNG, PSD, .blend, DOCX, etc.)</li>
-      <li>Research paper pricing may vary depending on condition and requirements</li>
-      <li>Listed rates are starting prices — final quote depends on scope</li>
-      <li>Accepting rush commissions — active 8:00 PM – 12:00 AM</li>
-    </ul>
-  </div>
-
-  <p class="contact">Commissions open — <strong>The CommDesk Commission</strong> · thecommdesk@gmail.com · https://x.com/thecommdesk</p>
-
-</div>
 </body>
 </html>
