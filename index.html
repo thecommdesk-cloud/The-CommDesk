@@ -215,6 +215,161 @@
     .hero{padding:64px 20px 48px;}
     .strip .wrap{flex-direction:column;}
   }
+
+  /* ---------- SAMPLE-WORKS MODAL ---------- */
+  .card{
+    cursor:pointer;
+    position:relative;
+    transition:transform 0.2s ease, border-color 0.2s ease;
+  }
+  .card:hover,
+  .card:focus-visible{
+    transform:translateY(-3px);
+    border-color:var(--accent);
+  }
+  .card:focus-visible{
+    outline:2px solid var(--accent);
+    outline-offset:3px;
+  }
+  .card .peek{
+    margin-top:14px;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    letter-spacing:0.05em;
+    text-transform:uppercase;
+    color:var(--accent);
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+  }
+
+  .modal-overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(8,8,10,0.72);
+    backdrop-filter:blur(3px);
+    -webkit-backdrop-filter:blur(3px);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:24px;
+    z-index:50;
+    opacity:0;
+    pointer-events:none;
+    transition:opacity 0.18s ease;
+  }
+  .modal-overlay.is-open{
+    opacity:1;
+    pointer-events:auto;
+  }
+  .modal{
+    width:100%;
+    max-width:640px;
+    max-height:82vh;
+    overflow-y:auto;
+    background:var(--panel);
+    border:1px solid var(--rule);
+    border-top:3px solid var(--accent, var(--gd));
+    border-radius:14px;
+    padding:32px 32px 28px;
+    transform:translateY(10px) scale(0.98);
+    transition:transform 0.18s ease;
+  }
+  .modal-overlay.is-open .modal{
+    transform:translateY(0) scale(1);
+  }
+  .modal-head{
+    display:flex;
+    align-items:flex-start;
+    justify-content:space-between;
+    gap:16px;
+    margin-bottom:18px;
+  }
+  .modal-head .code{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    letter-spacing:0.06em;
+    color:var(--accent, var(--gd));
+    display:block;
+    margin-bottom:8px;
+  }
+  .modal-head h3{
+    font-family:'Oswald',sans-serif;
+    font-size:24px;
+    font-weight:500;
+    text-transform:uppercase;
+    letter-spacing:0.02em;
+  }
+  .modal-close{
+    flex:none;
+    width:34px;
+    height:34px;
+    border-radius:50%;
+    border:1px solid var(--rule);
+    background:transparent;
+    color:var(--ink);
+    font-size:16px;
+    line-height:1;
+    cursor:pointer;
+    transition:border-color 0.2s ease, transform 0.2s ease;
+  }
+  .modal-close:hover,
+  .modal-close:focus-visible{
+    border-color:var(--accent, var(--gd));
+    transform:rotate(90deg);
+  }
+  .modal-close:focus-visible{
+    outline:2px solid var(--accent, var(--gd));
+    outline-offset:2px;
+  }
+  .sample-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+    gap:14px;
+  }
+  .sample-thumb{
+    border:1px solid var(--rule);
+    border-radius:10px;
+    overflow:hidden;
+    background:#0c0c10;
+    display:block;
+    color:inherit;
+    text-decoration:none;
+  }
+  .sample-thumb img{
+    display:block;
+    width:100%;
+    height:130px;
+    object-fit:cover;
+  }
+  .sample-placeholder{
+    height:130px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    letter-spacing:0.04em;
+    color:var(--muted);
+    background:
+      repeating-linear-gradient(135deg, rgba(255,255,255,0.03) 0 10px, transparent 10px 20px);
+  }
+  .sample-caption{
+    padding:10px 12px 12px;
+    font-size:12.5px;
+    color:var(--muted);
+    border-top:1px solid var(--rule);
+  }
+  .modal-note{
+    margin-top:18px;
+    font-size:12px;
+    color:var(--muted);
+    line-height:1.5;
+  }
+
+  @media(max-width:560px){
+    .modal{padding:26px 22px 22px;}
+  }
 </style>
 </head>
 <body>
@@ -236,25 +391,29 @@
         <h2>What the desk handles</h2>
       </div>
       <div class="grid">
-        <div class="card" style="--accent:var(--gd);">
+        <div class="card" style="--accent:var(--gd);" data-category="gd" tabindex="0" role="button" aria-haspopup="dialog" aria-label="Preview graphic design sample works">
           <span class="code">GD</span>
           <h3>Graphic design & layouting</h3>
           <p>Social posts, posters, logos, brochures, and print-ready layouts.</p>
+          <span class="peek">Hover to preview →</span>
         </div>
-        <div class="card" style="--accent:var(--td);">
+        <div class="card" style="--accent:var(--td);" data-category="td" tabindex="0" role="button" aria-haspopup="dialog" aria-label="Preview 3D animation sample works">
           <span class="code">3D</span>
           <h3>3D animation</h3>
           <p>Renders, logo reveals, motion graphics loops, and short animated sequences.</p>
+          <span class="peek">Hover to preview →</span>
         </div>
-        <div class="card" style="--accent:var(--ve);">
+        <div class="card" style="--accent:var(--ve);" data-category="ve" tabindex="0" role="button" aria-haspopup="dialog" aria-label="Preview video editing sample works">
           <span class="code">VE</span>
           <h3>Video editing</h3>
           <p>Promos, podcasts, same-day edits, and color grading.</p>
+          <span class="peek">Hover to preview →</span>
         </div>
-        <div class="card" style="--accent:var(--as);">
+        <div class="card" style="--accent:var(--as);" data-category="as" tabindex="0" role="button" aria-haspopup="dialog" aria-label="Preview academic services sample works">
           <span class="code">AS</span>
           <h3>Academic services</h3>
           <p>Essays, case studies, and research papers, chapter by chapter.</p>
+          <span class="peek">Hover to preview →</span>
         </div>
       </div>
     </div>
@@ -271,6 +430,173 @@
     <p>Contact us for more information — thecommdesk@gmail.com </p>
     <p>Rush commissions accepted, 8:00 PM – 12:00 AM</p>
   </footer>
+
+  <div class="modal-overlay" id="sampleModal" role="dialog" aria-modal="true" aria-labelledby="sampleModalTitle">
+    <div class="modal" id="sampleModalPanel">
+      <div class="modal-head">
+        <div>
+          <span class="code" id="sampleModalCode"></span>
+          <h3 id="sampleModalTitle"></h3>
+        </div>
+        <button type="button" class="modal-close" id="sampleModalClose" aria-label="Close preview">✕</button>
+      </div>
+      <div class="sample-grid" id="sampleModalGrid"></div>
+      <p class="modal-note" id="sampleModalNote"></p>
+    </div>
+  </div>
+
+  <script>
+    // Replace these placeholder entries with real filenames once samples are ready,
+    // e.g. { src: "samples/gd-01.jpg", caption: "Event poster, A4" }.
+    // Leave "src" empty to keep the plain placeholder tile.
+    var sampleWorks = {
+      gd: {
+        accent: "var(--gd)",
+        title: "Graphic design & layouting",
+        items: [
+          { src: "samples/Graphic Designing/gd-sample-1.png", href: "samples/Graphic Designing/gd-sample-1.png", caption: "Ambassador candidate poster" },
+          { src: "samples/Graphic Designing/gd-sample-2.png", href: "samples/Graphic Designing/gd-sample-2.png", caption: "Org candidate poster" },
+          { src: "samples/Graphic Designing/gd-sample-3.png", href: "samples/Graphic Designing/gd-sample-3.png", caption: "BSIT Honors Day — Illuminance" }
+        ]
+      },
+      td: {
+        accent: "var(--td)",
+        title: "3D animation",
+        items: [
+          { src: "samples/3d animation/iffest-intro.gif", caption: "IFFEST intro" },
+          { src: "samples/3d animation/mr-ms-it-ambassador.gif", caption: "Mr. and Ms. IT Ambassador" },
+          { src: "samples/3d animation/the-cache-teaser.gif", caption: "Logo Teaser" }
+        ]
+      },
+      ve: {
+        accent: "var(--ve)",
+        title: "Video editing",
+        items: [
+          { src: "samples/video editor/ve-sample-1.gif", caption: "Sample edit 01" },
+          { src: "samples/video editor/ve-sample-2.gif", caption: "Sample edit 02" },
+          { src: "samples/video editor/ve-sample-3.gif", caption: "Sample edit 03" }
+        ]
+      },
+      as: {
+        accent: "var(--as)",
+        title: "Academic services",
+        items: [
+          { src: "samples/Academic/as-security-case-study.png", href: "as-security-case-study.pdf", caption: "Case study — ISO 27001 data security policy" },
+          { src: "samples/Academic/as-ransomware-case-study.png", href: "as-ransomware-case-study.pdf", caption: "Case study — CLSU ransomware response" },
+          { src: "samples/Academic/as-research-proposal.png", href: "as-research-proposal.pdf", caption: "Research proposal — natural oral & home care" }
+        ]
+      }
+    };
+
+    var overlay = document.getElementById("sampleModal");
+    var panel = document.getElementById("sampleModalPanel");
+    var codeEl = document.getElementById("sampleModalCode");
+    var titleEl = document.getElementById("sampleModalTitle");
+    var gridEl = document.getElementById("sampleModalGrid");
+    var noteEl = document.getElementById("sampleModalNote");
+    var closeBtn = document.getElementById("sampleModalClose");
+    var cards = document.querySelectorAll(".card");
+
+    var openTimer = null;
+    var closeTimer = null;
+    var lastTrigger = null;
+
+    function buildGrid(items){
+      gridEl.innerHTML = "";
+      items.forEach(function(item){
+        var thumb = document.createElement(item.href ? "a" : "div");
+        thumb.className = "sample-thumb";
+        if (item.href) {
+          thumb.href = item.href;
+          thumb.target = "_blank";
+          thumb.rel = "noopener";
+        }
+        if (item.src) {
+          var img = document.createElement("img");
+          img.src = item.src;
+          img.alt = item.caption;
+          thumb.appendChild(img);
+        } else {
+          var ph = document.createElement("div");
+          ph.className = "sample-placeholder";
+          ph.textContent = "Sample pending";
+          thumb.appendChild(ph);
+        }
+        var cap = document.createElement("p");
+        cap.className = "sample-caption";
+        cap.textContent = item.caption;
+        thumb.appendChild(cap);
+        gridEl.appendChild(thumb);
+      });
+    }
+
+    function openModal(category, trigger){
+      var data = sampleWorks[category];
+      if (!data) return;
+      clearTimeout(closeTimer);
+      lastTrigger = trigger;
+      panel.style.setProperty("--accent", data.accent);
+      codeEl.textContent = category.toUpperCase();
+      titleEl.textContent = data.title;
+      buildGrid(data.items);
+      noteEl.textContent = "Preview only — full-size files are shared per commission.";
+      overlay.classList.add("is-open");
+    }
+
+    function closeModal(){
+      overlay.classList.remove("is-open");
+      if (lastTrigger) {
+        lastTrigger = null;
+      }
+    }
+
+    cards.forEach(function(card){
+      var category = card.getAttribute("data-category");
+
+      card.addEventListener("mouseenter", function(){
+        clearTimeout(closeTimer);
+        openTimer = setTimeout(function(){
+          openModal(category, card);
+        }, 200);
+      });
+
+      card.addEventListener("mouseleave", function(){
+        clearTimeout(openTimer);
+        closeTimer = setTimeout(function(){
+          if (!panel.matches(":hover")) closeModal();
+        }, 220);
+      });
+
+      // Click / keyboard for touch and keyboard-only users
+      card.addEventListener("click", function(){
+        openModal(category, card);
+      });
+      card.addEventListener("keydown", function(e){
+        if (e.key === "Enter" || e.key === " "){
+          e.preventDefault();
+          openModal(category, card);
+        }
+      });
+    });
+
+    panel.addEventListener("mouseenter", function(){
+      clearTimeout(closeTimer);
+    });
+    panel.addEventListener("mouseleave", function(){
+      closeTimer = setTimeout(closeModal, 150);
+    });
+
+    closeBtn.addEventListener("click", closeModal);
+    overlay.addEventListener("click", function(e){
+      if (e.target === overlay) closeModal();
+    });
+    document.addEventListener("keydown", function(e){
+      if (e.key === "Escape" && overlay.classList.contains("is-open")){
+        closeModal();
+        if (lastTrigger) lastTrigger.focus();
+      }
+    });
+  </script>
 
 </body>
 </html>
